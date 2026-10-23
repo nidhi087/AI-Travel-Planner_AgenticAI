@@ -187,34 +187,6 @@ npm run dev
 
 ---
 
-## 🎓 College Viva / Evaluation Guide
-
-When presenting this project to professors or examiners, highlight these specific demonstrations:
-
-### Demo 1: Real Research Data (No Generic Hallucinations)
-- **Input**: Origin: *Mumbai*, Destination: *Udaipur*, 4 Days, 2 Adults, Budget: ₹45,000, Style: *Moderate*.
-- **Points to show**:
-  - Intercity transit card showing exact driving distance (~699.1 km via OSRM) and Indian Railways fare tiers (Sleeper, 3AC, 2AC) with direct IRCTC links.
-  - Live weather card with real temperature from Open-Meteo.
-  - Real hotels (e.g. *Jagat Niwas Palace*, *Moustache Udaipur*) with price per night and MakeMyTrip links.
-  - Day-by-day activities at *City Palace*, *Lake Pichola*, *Jagdish Temple* with exact timings and Google Maps links.
-  - Authentic dining recommendations (*Natraj Dining Hall*, *Ambrai*).
-
-### Demo 2: Autonomous ReAct Self-Correction (Reflection)
-- **Input**: Destination: *Goa*, 4 Days, 2 Travelers, intentionally low budget: **₹15,000**, Style: *Moderate*.
-- **Points to show**:
-  - Show the **Agent Trace** badge turn to `Auto-Revised to Fit Budget`.
-  - Expand the trace to show examiners the exact reasoning:
-    1. Agent initially calculated moderate costs exceeding ₹15,000.
-    2. Constraint validator rejected the plan.
-    3. Agent autonomously reflected, downgraded to Budget tier, selected budget stays and free public beaches/forts, re-verified arithmetic, and produced a feasible itinerary within budget.
-
-### Demo 3: Interactive Travel Concierge
-- In the chat widget, click *"Reduce cost by switching to budget activities"* or ask *"Can you add vegetarian food spots?"*.
-- Show how the backend re-invokes tools to update the itinerary dynamically.
-
----
-
 ## 🔒 Security Best Practices
 
 - Sensitive API keys are stored in `backend/.env`, which is strictly ignored by `.gitignore`.
