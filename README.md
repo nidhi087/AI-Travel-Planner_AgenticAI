@@ -1,128 +1,227 @@
-# AI Travel Planner using Agentic AI
+# 🌍 WanderAgent AI — Autonomous Research-Based Travel Planner for India
+### *An Agentic AI Mini-Project with Real Data Providers, ReAct Self-Correction & Multi-Tool Orchestration*
 
-An intelligent travel planning application built for college mini-projects, demonstrating **Agentic AI** concepts including autonomous planning, multi-tool function invocation, constraint validation, and reflection-based self-correction.
+[![Python](https://img.shields.io/badge/Python-3.12-blue.svg?logo=python)](https://python.org)
+[![Flask](https://img.shields.io/badge/Backend-Flask-lightgrey.svg?logo=flask)](https://flask.palletsprojects.com/)
+[![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB.svg?logo=react)](https://react.dev/)
+[![Gemini](https://img.shields.io/badge/LLM-Gemini%203.8%20Flash-orange.svg?logo=google)](https://ai.google.dev/)
+[![OpenStreetMap](https://img.shields.io/badge/Geo-OpenStreetMap%20%2B%20OSRM-7EBC6F.svg?logo=openstreetmap)](https://www.openstreetmap.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](#)
 
 ---
 
-## 🌟 Key Agentic AI Highlights
+## 📌 Project Overview
 
-Unlike typical LLM chatbots that simply hallucinate travel recommendations without verifying constraints, **WanderAgent AI** executes a **ReAct (Reason + Act + Reflect) Loop**:
+**WanderAgent AI** is a full-stack, autonomous travel planning application designed to demonstrate core **Agentic AI** principles for engineering mini-projects. Unlike standard AI chatbots that generate hallucinated or generic itineraries (such as *"visit local attractions"* or *"eat at local eateries"*), WanderAgent AI grounds every decision in **real, destination-specific research data for India**:
 
-1. **Perception & Benchmark Grounding**: Looks up realistic city cost benchmarks, tier classifications, and seasonal travel advisories (`get_destination_insights`).
-2. **Deterministic Expense Estimation**: Calculates accurate lodging, food, local transit, intercity travel, activities, and contingency reserve using Python arithmetic (`estimate_trip_expenses`).
-3. **Budget Constraint Validation**: Checks whether the trip complies with the user's budget ceiling (`validate_budget_constraint`).
-4. **Autonomous Self-Correction (Reflection)**: If the trip is over budget, the agent catches the violation, dynamically downgrades accommodation tiers, substitutes premium tours with top-rated free public attractions, re-calculates, and re-validates before presenting the final plan.
-5. **Execution Trace Visibility**: The React interface reveals the step-by-step agent trace so students and examiners can inspect every thought, tool call, and decision.
+- **Real OpenStreetMap & OSRM Geocoding & Routing**: Live road distance, driving durations, and coordinates between Indian cities (e.g., Mumbai to Udaipur = 699.1 km, ~8.6 hrs).
+- **Indian Railways & Intercity Transit Fare Engine**: Realistic train fares across Sleeper, 3AC, and 2AC classes with direct **IRCTC** booking links, flight cost estimates with **Google Flights** links, and bus links.
+- **Live Weather via Open-Meteo API**: Real-time current temperatures, conditions, and travel weather advisories.
+- **Wikipedia REST Grounding**: Verified historical facts, monument descriptions, and official Wikipedia links for Indian attractions.
+- **Verified Hotel Comparison Engine**: Accurate price-per-night estimates, amenities, and direct search links on **Google Hotels** and **MakeMyTrip**.
+- **Authentic Dining & Sights**: Verified monuments with actual ticket fees, best visiting hours, and renowned local restaurants with Google Maps links.
+
+---
+
+## 🧠 Agentic AI Architecture: ReAct Loop & Self-Correction
+
+The application implements a true **Reason + Act + Reflect (ReAct)** agentic loop:
+
+```mermaid
+flowchart TD
+    A[User Input: Origin, Destination, Dates, Budget, Style] --> B[1. Perception & Research Gathering]
+    B --> C[Fetch Live Geocoding, Distance, Weather & Transit]
+    C --> D[Retrieve Verified Sights, Hotels & Dining]
+    D --> E[2. Reasoning & Drafting Plan]
+    E --> F[Gemini 3.8 Flash ReAct Orchestrator]
+    F --> G[3. Deterministic Budget Execution Tool]
+    G --> H{Budget Constraint Check}
+    H -- Exceeds Budget Ceiling --> I[4. Autonomous Reflection & Self-Correction]
+    I --> J[Downgrade Hotel Tier / Swap Premium with Free Public Sights]
+    J --> G
+    H -- Within Budget --> K[5. Verified Final Itinerary & Agent Trace]
+```
+
+### Key Agentic Behaviors Demonstrated
+1. **Perception & Multi-Tool Invocation**: Autonomous coordination between geocoding, transit, weather, hotel, and destination providers.
+2. **Deterministic Arithmetic Tools**: Avoids LLM calculation hallucinations by delegating financial sums, per-person splits, and transit fees to Python tool functions.
+3. **Budget Constraint Validation**: Compares computed total against the user's budget ceiling.
+4. **Self-Correction (Reflection)**: If over budget, the agent self-reflects, automatically scales accommodation tiers, substitutes expensive tours with highly rated free landmarks, and re-validates before generating output.
+5. **Transparent Execution Trace**: The UI displays a live agent trace badge (`Autonomous ReAct Loop`, `Auto-Revised to Fit Budget`) and step-by-step logs.
 
 ---
 
 ## 🛠️ Technology Stack
 
-* **Frontend**: React.js (Vite)
-* **Frontend Styling**: Vanilla CSS (Modern dark glassmorphic design system)
-* **Backend**: Python 3.12 with Flask & Flask-CORS
-* **LLM Engine**: Google Gemini API (`google-genai` SDK) with resilient agentic fallback
-* **Agent Tools**: Pure Python functions (`tools/budget_tools.py`, `tools/travel_tools.py`)
+| Layer | Technology | Details |
+| :--- | :--- | :--- |
+| **Frontend** | React 18 + Vite | Modern responsive UI, glassmorphic dark theme |
+| **Styling** | Vanilla CSS | Custom design system with zero framework lock-in |
+| **Backend** | Python 3.12 + Flask | RESTful API server with CORS support |
+| **LLM Engine** | Google Gemini API (`gemini-3.8-flash`) | Structured JSON generation with strict validation |
+| **Research Providers** | OSM Nominatim, OSRM, Open-Meteo, Wikipedia REST | Real data without mock templates |
+| **Agent Tools** | Pure Python Functions | Budget estimators, transit engine, constraint checkers |
 
 ---
 
-## 📂 Project Architecture
+## 📂 Project Structure
 
 ```text
 AgenticAI mini-project/
+├── .gitignore                   # Ignores .env, venv/, node_modules/, cache
+├── README.md                    # Project documentation & viva guide
 ├── backend/
-│   ├── .env                     # Your Gemini API key & port config
-│   ├── .env.example             # Template for environment variables
-│   ├── app.py                   # Flask REST API server (CORS enabled)
-│   ├── config.py                # App configuration loader
-│   ├── requirements.txt         # Python dependencies
+│   ├── .env                     # Local environment file (DO NOT COMMIT)
+│   ├── .env.example             # Template for API keys
+│   ├── app.py                   # Flask REST API endpoints
+│   ├── config.py                # Environment configuration loader
+│   ├── requirements.txt         # Backend Python dependencies
 │   ├── agent/
 │   │   ├── __init__.py
-│   │   ├── orchestrator.py      # Core ReAct agent orchestrator & fallback
-│   │   └── prompts.py           # System prompts & schema instructions
+│   │   ├── orchestrator.py      # ReAct agent loop, tool calls & reflection
+│   │   └── prompts.py           # System prompts & schema constraints
+│   ├── providers/               # Real research data providers
+│   │   ├── __init__.py
+│   │   ├── base_provider.py     # Base HTTP provider with timeouts & headers
+│   │   ├── geocoding_provider.py# OpenStreetMap Nominatim geocoding
+│   │   ├── routing_provider.py  # OSRM road distance & driving duration
+│   │   ├── weather_provider.py  # Open-Meteo live weather & climate alerts
+│   │   ├── wikipedia_provider.py# Wikipedia REST API summaries & links
+│   │   ├── transit_provider.py  # Indian Railways / flight / bus fare engine
+│   │   ├── hotel_provider.py    # Verified hotel engine with booking links
+│   │   ├── osm_places_provider.py# Overpass / OSM attractions & restaurants
+│   │   ├── india_destinations_kb.py# Verified Indian hub database
+│   │   └── provider_manager.py  # Unified research coordinator
 │   ├── tools/
 │   │   ├── __init__.py
-│   │   ├── budget_tools.py      # Expense estimator & budget validation tools
-│   │   └── travel_tools.py      # Destination insights & activity finder
+│   │   ├── budget_tools.py      # Expense arithmetic & constraint validator
+│   │   └── travel_tools.py      # Provider-connected destination tools
 │   └── data/
-│       └── travel_benchmarks.json # Realistic destination rates and tiers
-│
-├── frontend/
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.js
-│   └── src/
-│       ├── App.jsx              # Main dashboard container
-│       ├── index.css            # Glassmorphism design system
-│       ├── services/
-│       │   └── api.js           # API communication client
-│       └── components/
-│           ├── Navbar.jsx       # Header & live system status
-│           ├── TripForm.jsx     # Preferences & constraints input form
-│           ├── AgentTrace.jsx   # Visual ReAct execution trace
-│           ├── ItineraryView.jsx# Day-by-day morning/afternoon/evening plan
-│           ├── BudgetSummary.jsx# Financial progress & category breakdown
-│           └── ChatAssistant.jsx# Interactive follow-up travel concierge
-│
-└── README.md
+│       └── travel_benchmarks.json
+└── frontend/
+    ├── package.json
+    ├── vite.config.js
+    └── src/
+        ├── App.jsx              # Main dashboard
+        ├── index.css            # Glassmorphism design tokens
+        ├── components/
+        │   ├── Navbar.jsx       # Header & health status indicator
+        │   ├── TripForm.jsx     # Origin, destination, dates, budget form
+        │   ├── AgentTrace.jsx   # Visual ReAct reasoning steps
+        │   ├── ItineraryView.jsx# Transit, weather, hotel & day-by-day view
+        │   ├── BudgetSummary.jsx# Category breakdown & budget bar
+        │   └── ChatAssistant.jsx# Interactive follow-up travel concierge
+        └── services/
+            └── api.js           # Frontend API client
 ```
 
 ---
 
 ## 🚀 Quickstart Guide
 
-### 1. Run the Flask Backend
+### Prerequisites
+- **Python 3.10+**
+- **Node.js 18+** & npm
+- *(Optional but recommended)* A free Gemini API key from [Google AI Studio](https://aistudio.google.com/)
 
-Open a terminal in the project directory:
+---
+
+### Step 1: Set Up & Run the Flask Backend
 
 ```bash
-# Navigate to backend
+# Navigate to the backend folder
 cd backend
 
-# Activate virtual environment (Windows PowerShell)
+# Create a virtual environment (if not already created)
+python -m venv venv
+
+# Activate the virtual environment
+# On Windows PowerShell:
 .\venv\Scripts\Activate.ps1
+# On macOS/Linux:
+# source venv/bin/activate
 
-# (Optional) Add your Gemini API key in backend/.env:
-# GEMINI_API_KEY=your_actual_key_here
+# Install dependencies
+pip install -r requirements.txt
 
-# Start the Flask API
+# Create your .env file from the example
+cp .env.example .env
+# Edit backend/.env and paste your GEMINI_API_KEY
+
+# Start the Flask API server
 python app.py
 ```
-> The backend server will run on `http://127.0.0.1:5000`.
-> *Note: If no API key is provided, the backend automatically runs in **Resilient Agentic Engine Mode**, demonstrating the exact same tool-calling loop, budget validation, and auto-revision without external blockers.*
+> Backend runs at: `http://127.0.0.1:5000`  
+> Health check: `http://127.0.0.1:5000/api/health`
 
 ---
 
-### 2. Run the React Frontend
+### Step 2: Set Up & Run the React Frontend
 
-Open a second terminal:
+Open a new terminal:
 
 ```bash
-# Navigate to frontend
+# Navigate to the frontend folder
 cd frontend
 
-# Start the Vite development server
+# Install npm dependencies
+npm install
+
+# Start Vite dev server
 npm run dev
 ```
-> The frontend application will run on `http://localhost:5173`.
+> Frontend runs at: `http://localhost:5173`
 
 ---
 
-## 📡 API Endpoints
+## 📡 REST API Endpoints
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `GET` | `/api/health` | Checks server health & Gemini API configuration status |
-| `GET` | `/api/destinations` | Returns popular destination presets & tiers |
-| `POST` | `/api/plan-trip` | Triggers the agentic ReAct loop and returns the itinerary |
-| `POST` | `/api/chat-assistant` | Handles follow-up adjustments (cost reduction, duration changes) |
+| `GET` | `/api/health` | Health status and active LLM configuration |
+| `GET` | `/api/destinations` | Popular Indian destination presets |
+| `GET` | `/api/destinations/search?q=...` | Live geocoding search for Indian cities |
+| `POST` | `/api/transit-options` | Intercity distance, train, flight, and bus estimates |
+| `POST` | `/api/plan-trip` | Executes the ReAct agent loop and returns the complete itinerary |
+| `POST` | `/api/chat-assistant` | Follow-up conversational adjustments (budget revision, style changes) |
 
 ---
 
-## 🎓 Demonstrating for College Viva / Evaluation
+## 🎓 College Viva / Evaluation Guide
 
-1. **Test Standard Planning**: Enter **Goa**, 4 Days, 2 Travelers, Budget ₹45,000, Moderate style. Show how the agent computes realistic expenses within budget.
-2. **Test Autonomous Self-Correction**: Enter **Goa**, 4 Days, 2 Travelers, with an intentionally low budget of **₹15,000**, Moderate style.
-   * Observe the **Agent Trace** badge turn to `Auto-Revised to Fit Budget`.
-   * Open the trace to show examiners how the agent calculated an initial cost of ~₹40,000, caught the budget rejection, autonomously downgraded to Budget tier, swapped premium tours with free sights, and produced a feasible plan!
-3. **Test Follow-Up Assistant**: Click *"Reduce cost by switching to budget activities"* in the chat widget to show dynamic plan recalculation.
+When presenting this project to professors or examiners, highlight these specific demonstrations:
+
+### Demo 1: Real Research Data (No Generic Hallucinations)
+- **Input**: Origin: *Mumbai*, Destination: *Udaipur*, 4 Days, 2 Adults, Budget: ₹45,000, Style: *Moderate*.
+- **Points to show**:
+  - Intercity transit card showing exact driving distance (~699.1 km via OSRM) and Indian Railways fare tiers (Sleeper, 3AC, 2AC) with direct IRCTC links.
+  - Live weather card with real temperature from Open-Meteo.
+  - Real hotels (e.g. *Jagat Niwas Palace*, *Moustache Udaipur*) with price per night and MakeMyTrip links.
+  - Day-by-day activities at *City Palace*, *Lake Pichola*, *Jagdish Temple* with exact timings and Google Maps links.
+  - Authentic dining recommendations (*Natraj Dining Hall*, *Ambrai*).
+
+### Demo 2: Autonomous ReAct Self-Correction (Reflection)
+- **Input**: Destination: *Goa*, 4 Days, 2 Travelers, intentionally low budget: **₹15,000**, Style: *Moderate*.
+- **Points to show**:
+  - Show the **Agent Trace** badge turn to `Auto-Revised to Fit Budget`.
+  - Expand the trace to show examiners the exact reasoning:
+    1. Agent initially calculated moderate costs exceeding ₹15,000.
+    2. Constraint validator rejected the plan.
+    3. Agent autonomously reflected, downgraded to Budget tier, selected budget stays and free public beaches/forts, re-verified arithmetic, and produced a feasible itinerary within budget.
+
+### Demo 3: Interactive Travel Concierge
+- In the chat widget, click *"Reduce cost by switching to budget activities"* or ask *"Can you add vegetarian food spots?"*.
+- Show how the backend re-invokes tools to update the itinerary dynamically.
+
+---
+
+## 🔒 Security Best Practices
+
+- Sensitive API keys are stored in `backend/.env`, which is strictly ignored by `.gitignore`.
+- An environment template is provided at `backend/.env.example`.
+- Never commit `.env` or the `venv/` directory to public version control.
+
+---
+
+## 📄 License
+This project is open-source and available under the [MIT License](LICENSE).
