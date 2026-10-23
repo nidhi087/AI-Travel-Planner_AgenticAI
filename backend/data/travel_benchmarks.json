@@ -1,0 +1,337 @@
+{
+  "destinations": {
+    "goa": {
+      "name": "Goa, India",
+      "country": "India",
+      "tier": "Tier-2",
+      "currency": "INR",
+      "best_season": "November to February",
+      "daily_benchmarks": {
+        "Budget": {
+          "stay_per_night": 1200,
+          "food_per_day": 800,
+          "local_transport_per_day": 500,
+          "activities_per_day": 400
+        },
+        "Moderate": {
+          "stay_per_night": 3200,
+          "food_per_day": 1600,
+          "local_transport_per_day": 1000,
+          "activities_per_day": 1000
+        },
+        "Luxury": {
+          "stay_per_night": 8500,
+          "food_per_day": 3500,
+          "local_transport_per_day": 2500,
+          "activities_per_day": 2500
+        }
+      },
+      "curated_activities": {
+        "Free": [
+          "Sunset at Vagator Beach",
+          "Walk through Fontainhas Latin Quarter",
+          "Relax at Palolem Beach",
+          "Visit Chapora Fort viewpoint"
+        ],
+        "Budget": [
+          {"name": "Anjuna Flea Market & Café hopping", "cost": 600},
+          {"name": "Spice Plantation guided tour & Goan lunch", "cost": 800},
+          {"name": "Aguada Fort & Lighthouse entry", "cost": 250}
+        ],
+        "Premium": [
+          {"name": "Private Sunset Yacht Cruise in Mandovi", "cost": 3500},
+          {"name": "Scuba Diving & Watersports at Grande Island", "cost": 2800},
+          {"name": "Fine Dining Seafood at Thalassa", "cost": 2200}
+        ]
+      },
+      "tips": "Scooter rentals (₹300-₹500/day) are the most economical way to travel around Goa."
+    },
+    "jaipur": {
+      "name": "Jaipur, India",
+      "country": "India",
+      "tier": "Tier-2",
+      "currency": "INR",
+      "best_season": "October to March",
+      "daily_benchmarks": {
+        "Budget": {
+          "stay_per_night": 1000,
+          "food_per_day": 600,
+          "local_transport_per_day": 400,
+          "activities_per_day": 500
+        },
+        "Moderate": {
+          "stay_per_night": 2800,
+          "food_per_day": 1400,
+          "local_transport_per_day": 900,
+          "activities_per_day": 1200
+        },
+        "Luxury": {
+          "stay_per_night": 9000,
+          "food_per_day": 3200,
+          "local_transport_per_day": 2200,
+          "activities_per_day": 3000
+        }
+      },
+      "curated_activities": {
+        "Free": [
+          "Photography at Hawa Mahal exterior",
+          "Stroll through Old Pink City Bazaars",
+          "Sunrise at Jal Mahal promenade"
+        ],
+        "Budget": [
+          {"name": "Amber Fort composite ticket & tour", "cost": 500},
+          {"name": "City Palace & Jantar Mantar observatory", "cost": 700},
+          {"name": "Traditional Rajasthani Thali at Chokhi Dhani", "cost": 900}
+        ],
+        "Premium": [
+          {"name": "Hot Air Balloon Safari over Amer", "cost": 8500},
+          {"name": "Private Heritage Palace Dinner & Folk Show", "cost": 3500},
+          {"name": "Curated Royal Gem & Jewelry Heritage Walk", "cost": 2000}
+        ]
+      },
+      "tips": "Purchase the composite heritage entry ticket to save up to 40% on monument admissions."
+    },
+    "manali": {
+      "name": "Manali, Himachal Pradesh",
+      "country": "India",
+      "tier": "Tier-2",
+      "currency": "INR",
+      "best_season": "March to June (Summer) or December to February (Snow)",
+      "daily_benchmarks": {
+        "Budget": {
+          "stay_per_night": 1100,
+          "food_per_day": 700,
+          "local_transport_per_day": 500,
+          "activities_per_day": 600
+        },
+        "Moderate": {
+          "stay_per_night": 3000,
+          "food_per_day": 1500,
+          "local_transport_per_day": 1100,
+          "activities_per_day": 1500
+        },
+        "Luxury": {
+          "stay_per_night": 7500,
+          "food_per_day": 3000,
+          "local_transport_per_day": 2400,
+          "activities_per_day": 3500
+        }
+      },
+      "curated_activities": {
+        "Free": [
+          "Jogini Waterfall trek from Vashisht",
+          "Explore Old Manali hipster cafes & cedar forests",
+          "Walk around Mall Road and Tibetan Monastery"
+        ],
+        "Budget": [
+          {"name": "Solang Valley ropeway & adventure park", "cost": 800},
+          {"name": "Hadimba Temple & Museum of Himachal Culture", "cost": 200},
+          {"name": "Naggar Castle heritage tour", "cost": 350}
+        ],
+        "Premium": [
+          {"name": "Atal Tunnel & Sissu Day Trip with private SUV", "cost": 3500},
+          {"name": "Paragliding high flight at Solang", "cost": 2500},
+          {"name": "Riverside Riverside Camping & Trout Barbecue", "cost": 2800}
+        ]
+      },
+      "tips": "Book Rohtang Pass green permits in advance if traveling during peak season."
+    },
+    "paris": {
+      "name": "Paris, France",
+      "country": "France",
+      "tier": "Tier-1",
+      "currency": "EUR",
+      "best_season": "April to October",
+      "daily_benchmarks": {
+        "Budget": {
+          "stay_per_night": 45,
+          "food_per_day": 30,
+          "local_transport_per_day": 10,
+          "activities_per_day": 15
+        },
+        "Moderate": {
+          "stay_per_night": 120,
+          "food_per_day": 60,
+          "local_transport_per_day": 15,
+          "activities_per_day": 35
+        },
+        "Luxury": {
+          "stay_per_night": 350,
+          "food_per_day": 150,
+          "local_transport_per_day": 50,
+          "activities_per_day": 90
+        }
+      },
+      "curated_activities": {
+        "Free": [
+          "Picnic at Champ de Mars by the Eiffel Tower",
+          "Walk through Montmartre & Sacré-Cœur basilica",
+          "Stroll along the Seine River and Jardin du Luxembourg"
+        ],
+        "Budget": [
+          {"name": "Louvre Museum standard admission", "cost": 22},
+          {"name": "Seine River 1-hour Sightseeing Cruise", "cost": 18},
+          {"name": "Arc de Triomphe rooftop ticket", "cost": 16}
+        ],
+        "Premium": [
+          {"name": "Eiffel Tower summit with Champagne & priority access", "cost": 85},
+          {"name": "Palace of Versailles guided tour & gardens", "cost": 75},
+          {"name": "Moulin Rouge Cabaret show with dinner", "cost": 190}
+        ]
+      },
+      "tips": "Use the Paris Métro Navigo card or Carnet tickets rather than single ride tickets."
+    },
+    "tokyo": {
+      "name": "Tokyo, Japan",
+      "country": "Japan",
+      "tier": "Tier-1",
+      "currency": "USD",
+      "best_season": "March to May (Sakura) or September to November",
+      "daily_benchmarks": {
+        "Budget": {
+          "stay_per_night": 40,
+          "food_per_day": 25,
+          "local_transport_per_day": 10,
+          "activities_per_day": 15
+        },
+        "Moderate": {
+          "stay_per_night": 110,
+          "food_per_day": 55,
+          "local_transport_per_day": 15,
+          "activities_per_day": 35
+        },
+        "Luxury": {
+          "stay_per_night": 320,
+          "food_per_day": 140,
+          "local_transport_per_day": 40,
+          "activities_per_day": 80
+        }
+      },
+      "curated_activities": {
+        "Free": [
+          "Sensō-ji Temple & Asakusa historical street",
+          "Shibuya Crossing & Hachiko statue experience",
+          "Meiji Shrine & Yoyogi Park stroll"
+        ],
+        "Budget": [
+          {"name": "Tokyo Skytree observation deck", "cost": 22},
+          {"name": "teamLab Planets immersive digital art", "cost": 32},
+          {"name": "Tsukiji Outer Market street food tasting", "cost": 20}
+        ],
+        "Premium": [
+          {"name": "Mount Fuji & Hakone Day Tour with bullet train", "cost": 130},
+          {"name": "Authentic Omakase Sushi Dinner in Ginza", "cost": 150},
+          {"name": "Private Akihabara & Harajuku Pop-Culture Guide", "cost": 80}
+        ]
+      },
+      "tips": "Get a Welcome Suica or Pasmo IC card for seamless subway travel and convenience store purchases."
+    },
+    "bali": {
+      "name": "Bali, Indonesia",
+      "country": "Indonesia",
+      "tier": "Tier-2",
+      "currency": "USD",
+      "best_season": "April to October",
+      "daily_benchmarks": {
+        "Budget": {
+          "stay_per_night": 20,
+          "food_per_day": 15,
+          "local_transport_per_day": 8,
+          "activities_per_day": 10
+        },
+        "Moderate": {
+          "stay_per_night": 60,
+          "food_per_day": 30,
+          "local_transport_per_day": 18,
+          "activities_per_day": 25
+        },
+        "Luxury": {
+          "stay_per_night": 200,
+          "food_per_day": 75,
+          "local_transport_per_day": 40,
+          "activities_per_day": 60
+        }
+      },
+      "curated_activities": {
+        "Free": [
+          "Sunset at Echo Beach / Canggu",
+          "Walk through Tegallalang Rice Terraces pathways",
+          "Explore traditional Ubud Art Market"
+        ],
+        "Budget": [
+          {"name": "Uluwatu Temple & Sunset Kecak Fire Dance", "cost": 15},
+          {"name": "Ubud Sacred Monkey Forest Sanctuary", "cost": 8},
+          {"name": "Tirta Empul Holy Water Temple blessing", "cost": 7}
+        ],
+        "Premium": [
+          {"name": "Nusa Penida Island day speed boat & snorkeling tour", "cost": 65},
+          {"name": "Mount Batur sunrise 4WD jeep safari", "cost": 50},
+          {"name": "Ayung River White Water Rafting & buffet", "cost": 40}
+        ]
+      },
+      "tips": "Renting a scooter or hiring a private driver for 10 hours ($35) is the most convenient way to explore the island."
+    },
+    "dubai": {
+      "name": "Dubai, UAE",
+      "country": "UAE",
+      "tier": "Tier-1",
+      "currency": "USD",
+      "best_season": "November to March",
+      "daily_benchmarks": {
+        "Budget": {
+          "stay_per_night": 50,
+          "food_per_day": 25,
+          "local_transport_per_day": 12,
+          "activities_per_day": 20
+        },
+        "Moderate": {
+          "stay_per_night": 130,
+          "food_per_day": 60,
+          "local_transport_per_day": 25,
+          "activities_per_day": 45
+        },
+        "Luxury": {
+          "stay_per_night": 380,
+          "food_per_day": 160,
+          "local_transport_per_day": 60,
+          "activities_per_day": 110
+        }
+      },
+      "curated_activities": {
+        "Free": [
+          "Dubai Fountain show & Burj Khalifa lake promenade",
+          "Walk through Dubai Marina and JBR beach",
+          "Visit Old Dubai Gold and Spice Souks (Abra boat ₹25 / 1 AED)"
+        ],
+        "Budget": [
+          {"name": "Dubai Frame panoramic glass bridge", "cost": 16},
+          {"name": "Museum of the Future entry ticket", "cost": 40},
+          {"name": "Desert Safari with dune bashing & BBQ dinner", "cost": 45}
+        ],
+        "Premium": [
+          {"name": "Burj Khalifa Level 148 'At the Top SKY' lounge", "cost": 110},
+          {"name": "Aquaventure Waterpark & Lost Chambers at Atlantis", "cost": 95},
+          {"name": "Helicopter scenic flight over the Palm & Burj Al Arab", "cost": 195}
+        ]
+      },
+      "tips": "Use the Dubai Metro Red Line for easy transport between DXB Airport, Downtown, and Marina."
+    }
+  },
+  "default_global_benchmarks": {
+    "Tier-1": {
+      "Budget": {"stay_per_night": 45, "food_per_day": 25, "local_transport_per_day": 12, "activities_per_day": 15},
+      "Moderate": {"stay_per_night": 120, "food_per_day": 55, "local_transport_per_day": 20, "activities_per_day": 35},
+      "Luxury": {"stay_per_night": 320, "food_per_day": 140, "local_transport_per_day": 50, "activities_per_day": 80}
+    },
+    "Tier-2": {
+      "Budget": {"stay_per_night": 30, "food_per_day": 20, "local_transport_per_day": 10, "activities_per_day": 12},
+      "Moderate": {"stay_per_night": 80, "food_per_day": 40, "local_transport_per_day": 15, "activities_per_day": 25},
+      "Luxury": {"stay_per_night": 220, "food_per_day": 95, "local_transport_per_day": 35, "activities_per_day": 55}
+    },
+    "Tier-3": {
+      "Budget": {"stay_per_night": 20, "food_per_day": 12, "local_transport_per_day": 6, "activities_per_day": 8},
+      "Moderate": {"stay_per_night": 50, "food_per_day": 25, "local_transport_per_day": 10, "activities_per_day": 15},
+      "Luxury": {"stay_per_night": 140, "food_per_day": 65, "local_transport_per_day": 25, "activities_per_day": 35}
+    }
+  }
+}
